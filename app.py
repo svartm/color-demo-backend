@@ -1,14 +1,14 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from color_helper import process_guess, generate_random_color
+from color_helper import process_guess, generate_hex_color
 import random
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all origins
 
 @app.route('/getcolor', methods=['GET'])
-def get_random_color():
-    color_code = generate_random_color()
+def get_new_color():
+    color_code = generate_hex_color()
     return jsonify({"color": color_code})
 
 @app.route('/checkcolor', methods=['POST'])

@@ -1,13 +1,20 @@
-def generate_random_color():
-    # Generate a random color code
-    # Return the color code as JSON
-    return '#0000ff'
+import random
+
+
+def generate_hex_color():
+    r = random.randint(0,5)
+    g = random.randint(0,5)
+    b = random.randint(0,5)
+
+    r *= 51
+    g *= 51
+    b *= 51
+
+    hex_code = "#{:02x}{:02x}{:02x}".format(r, g, b)
+    return hex_code
+
 
 def process_guess(answer, guess):
-    # Process the inputted hex code
-    # Determine the changes in the values of red, green, and blue
-    # Determine the correctness of the values
-    # Return the result as JSON
     message = 'Try again!'
     if (answer == guess):
         message = 'Correct!'
